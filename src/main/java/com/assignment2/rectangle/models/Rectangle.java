@@ -5,8 +5,10 @@ import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "rectangle")
 public class Rectangle {
     @Id
     @GeneratedValue

@@ -11,3 +11,5 @@ public class RectangleApplication {
 	}
 
 }
+
+// 앱이 꺼진 뒤에 데이터베이스에 계속 저장이 안됨
