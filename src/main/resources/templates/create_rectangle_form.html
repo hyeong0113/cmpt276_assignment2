@@ -23,22 +23,22 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="name" class="col-form-label">Name</label>
-                            <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Name">
+                            <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Name" required>
                             <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="width" class="col-form-label">Width</label>
-                            <input type="number" th:field="*{width}" class="form-control" id="width" placeholder="Width">
+                            <input type="number" th:field="*{width}" class="form-control" id="width" placeholder="Width" required>
                             <span th:if="${#fields.hasErrors('width')}" th:errors="*{width}" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="height" class="col-form-label">Height</label>
-                            <input type="number" th:field="*{height}" class="form-control" id="height" placeholder="Height">
+                            <input type="number" th:field="*{height}" class="form-control" id="height" placeholder="Height" required>
                             <span th:if="${#fields.hasErrors('height')}" th:errors="*{height}" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="color" class="col-form-label">Color</label>
-                            <input type="text" th:field="*{color}" class="form-control" id="color" placeholder="Color">
+                            <input type="text" th:field="*{color}" class="form-control" id="color" placeholder="Color" required>
                             <span th:if="${#fields.hasErrors('color')}" th:errors="*{color}" class="text-danger"></span>
                         </div>
                     </div>

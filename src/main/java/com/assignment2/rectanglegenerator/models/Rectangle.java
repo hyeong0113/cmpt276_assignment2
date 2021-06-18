@@ -4,6 +4,7 @@ import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Rectangle {
@@ -11,12 +12,16 @@ public class Rectangle {
     @GeneratedValue
     private Long id;
 
+    @NotNull
     private String name;
 
+    @NotNull
     private int width;
 
+    @NotNull
     private int height;
 
+    @NotNull
     private String color;
 
 
