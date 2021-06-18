@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Rectangles</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="/">Navbar</a>
+    </nav>
+    <div class="container my-5">
+        <h2 class="mb-5">Edit Rectangle</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <form action="#" th:action="@{/edit/{id}(id=${rectangle.id})}" th:object="${rectangle}">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label for="name" class="col-form-label">Name</label>
+                            <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Name" value="${rectangle.name}">
+                            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="width" class="col-form-label">Width</label>
+                            <input type="number" th:field="*{width}" class="form-control" id="width" placeholder="Width" value="${rectangle.width}">
+                            <span th:if="${#fields.hasErrors('width')}" th:errors="*{width}" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="height" class="col-form-label">Height</label>
+                            <input type="number" th:field="*{height}" class="form-control" id="height" placeholder="Height" value="${rectangle.height}">
+                            <span th:if="${#fields.hasErrors('height')}" th:errors="*{height}" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="color" class="col-form-label">Color</label>
+                            <input type="text" th:field="*{color}" class="form-control" id="color" placeholder="Color" value="${rectangle.color}">
+                            <span th:if="${#fields.hasErrors('color')}" th:errors="*{color}" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mt-5">
+                            <input type="submit" class="btn btn-primary" value="Edit Rectangle">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
