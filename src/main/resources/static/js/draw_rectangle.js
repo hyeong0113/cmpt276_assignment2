@@ -1,3 +1,11 @@
+function draw(width, height, color) {
+    var c = document.getElementById("draw-rectangle");
+    var ctx = c.getContext("2d");
+    ctx.fillStyle = colourNameToHex(color.toLowerCase());
+    ctx.fillRect(0, 0, width, height);
+}
+
+
 function colourNameToHex(colour) {
     var colours = {
         "aliceblue": "#f0f8ff",
