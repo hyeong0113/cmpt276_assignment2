@@ -21,7 +21,7 @@
             <div class="col-md-6">
                 <h2 th:case="null ">No rectangle yet!</h2>
                 <div th:case="*">
-                    <h2 class="my-5">Rectangle Detail</h2>
+                    <h2 class="mb-5">Rectangle Detail</h2>
                     <canvas id="draw-rectangle" th:attr="width=${rectangle.getWidth()},height=${rectangle.getHeight()}" style="border:1px solid #d3d3d3;">
                         <script th:inline="javascript">
                             /*<![CDATA[*/
@@ -64,9 +64,12 @@
                 </div>
             </div>
         </div>
-        <p class="my-5"><a th:href="@{/editrectangle/{id}(id=${rectangle.id})}">Edit</a></p>
-        <p class="my-5"><a th:href="@{/delete/{id}(id=${rectangle.id})}">Delete</a></p>
-
+        <div class="row">
+            <div class="col-md-6 mt-5">
+                <a th:href="@{/editrectangle/{id}(id=${rectangle.id})}" class="btn btn-primary" role="button" aria-pressed="true">Edit</a>
+                <a th:href="@{/delete/{id}(id=${rectangle.id})}" class="btn btn-primary" role="button" aria-pressed="true">Delete</a>
+            </div>
+        </div>
     </div>
 </body>
 
