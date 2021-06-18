@@ -8,19 +8,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+    <script th:src="@{/js/convert_color.js} "></script>
+    <!-- <link rel="stylesheet " href="../css/shards.min.css "> -->
 </head>
 
 <body>
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="/">Navbar</a>
     </nav>
-    <div th:switch="${rectangle}" class="container my-5">
+    <div id="rectangle-info" th:switch="${rectangle}" class="container my-5">
         <div class="row">
             <div class="col-md-6">
-                <h2 th:case="null">No rectangle yet!</h2>
+                <h2 th:case="null ">No rectangle yet!</h2>
                 <div th:case="*">
                     <h2 class="my-5">Rectangle Detail</h2>
+                    <canvas id="draw-rectangle" th:attr="width=${rectangle.getWidth()},height=${rectangle.getHeight()}" style="border:1px solid #d3d3d3;">
+                        <script th:inline="javascript">
+                            /*<![CDATA[*/
+                                var width = /*[[${rectangle.getWidth()}]]*/ '';
+                                var height = /*[[${rectangle.getHeight()}]]*/ '';
+                                var color = /*[[${rectangle.getColor()}]]*/ '';
+
+                                var c = document.getElementById("draw-rectangle");
+                                var ctx = c.getContext("2d");
+                                ctx.fillStyle = colourNameToHex(color.toLowerCase());
+                                ctx.fillRect(0, 0, width, height);
+                             /*]]>*/
+                      </script> 
+                    </canvas>
+
                     <table class="table table-striped table-responsive-md">
                         <tbody>
                             <tr>
@@ -33,15 +49,15 @@
                             </tr>
                             <tr>
                                 <td>Width</td>
-                                <td th:text="${rectangle.width}"></td>
+                                <td id="rectangle-width" th:text="${rectangle.width}"></td>
                             </tr>
                             <tr>
                                 <td>Height</td>
-                                <td th:text="${rectangle.height}"></td>
+                                <td id="rectangle-height" th:text="${rectangle.height}"></td>
                             </tr>
                             <tr>
                                 <td>Color</td>
-                                <td th:text="${rectangle.color}"></td>
+                                <td id="rectangle-color" th:text="${rectangle.color}"></td>
                             </tr>
                         </tbody>
                     </table>
