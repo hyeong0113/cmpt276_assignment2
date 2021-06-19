@@ -1,13 +1,18 @@
-function draw(width, height, color) {
+function draw(width, height, color, name, angle) {
     var c = document.getElementById("draw-rectangle");
     var ctx = c.getContext("2d");
-    ctx.fillStyle = colourNameToHex(color.toLowerCase());
-    ctx.fillRect(0, 0, width, height);
+    ctx.rotate(angle * Math.PI / 180);
+    ctx.rect(0, 0, width, height);
+    ctx.fillStyle = colourNameToHex(color);
+    ctx.fill();
+    ctx.fillStyle = color == "black" ? "white" : "black";
+    ctx.textAlign = "center";
+    ctx.font = (height / 4).toString() + "px Verdana";
+    ctx.fillText(name, c.width / 2, c.height / 2);
 }
 
-
-function colourNameToHex(colour) {
-    var colours = {
+function colourNameToHex(color) {
+    var colors = {
         "aliceblue": "#f0f8ff",
         "antiquewhite": "#faebd7",
         "aqua": "#00ffff",
@@ -151,8 +156,8 @@ function colourNameToHex(colour) {
         "yellowgreen": "#9acd32"
     };
 
-    if (typeof colours[colour.toLowerCase()] != 'undefined') {
-        return colours[colour.toLowerCase()];
+    if (typeof colors[color.toLowerCase()] != 'undefined') {
+        return colors[color.toLowerCase()];
     }
 
     console.log("The name of color is not valid");

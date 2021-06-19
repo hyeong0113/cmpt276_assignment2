@@ -21,13 +21,15 @@
                 <h2 th:case="null ">No rectangle yet!</h2>
                 <div th:case="*">
                     <h2 class="mb-5">Rectangle Detail</h2>
-                    <canvas id="draw-rectangle" th:attr="width=${rectangle.getWidth()},height=${rectangle.getHeight()}" style="border:1px solid #d3d3d3;">
+                    <canvas id="draw-rectangle" th:attr="width=${rectangle.getWidth()},height=${rectangle.getHeight()}" style="border:1px solid;">
                         <script th:inline="javascript">
                             /*<![CDATA[*/
                                 var width = /*[[${rectangle.getWidth()}]]*/ '';
                                 var height = /*[[${rectangle.getHeight()}]]*/ '';
                                 var color = /*[[${rectangle.getColor()}]]*/ '';
-                                draw(width, height, color);
+                                var user_name = /*[[${rectangle.getName()}]]*/ '';
+                                var angle = /*[[${rectangle.getAngle()}]]*/ '';
+                                draw(width, height, color, user_name, angle);
                              /*]]>*/
                       </script> 
                     </canvas>
@@ -53,6 +55,10 @@
                             <tr>
                                 <td>Color</td>
                                 <td id="rectangle-color" th:text="${rectangle.color}"></td>
+                            </tr>
+                            <tr>
+                                <td>Angle</td>
+                                <td id="rectangle-angle" th:text="${rectangle.angle}"></td>
                             </tr>
                         </tbody>
                     </table>

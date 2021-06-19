@@ -24,16 +24,19 @@ public class Rectangle {
     @NotNull
     private String color;
 
+    private int angle;
+
 
     public Rectangle() {
 
     }
 
-    public Rectangle(String name, int width, int height, String color) {
+    public Rectangle(String name, int width, int height, String color, int angle) {
         this.name = name;
         this.width = width;
         this.height = height;
         this.color = color;
+        this.angle = angle;
     }
 
     public Long getId() {
@@ -72,6 +75,15 @@ public class Rectangle {
         this.color = color;
     }
 
+    public int getAngle() {
+        return this.angle;
+    }
+
+    public void setAngle(int angle) {
+        this.angle = angle;
+    }
+
+
     @Override
     public boolean equals(Object o) {
       if (this == o)
@@ -86,13 +98,13 @@ public class Rectangle {
   
     @Override
     public int hashCode() {
-      return Objects.hash(this.id, this.name, this.width, this.height, this.color);
+      return Objects.hash(this.id, this.name, this.width, this.height, this.color, this.angle);
     }
   
     @Override
     public String toString() {
       return "Employee{" + "id=" + this.id + ", name='" + this.name + '\'' + ", width='" + this.width + '\''
-            + ", height='" + this.height + '\'' + ", color='" + this.color + '\'' + '}';
+            + ", height='" + this.height + '\'' + ", color='" + this.color + '\'' + this.angle + '\'' + '}';
     }
 
 }

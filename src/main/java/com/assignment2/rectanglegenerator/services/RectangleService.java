@@ -31,6 +31,7 @@ public class RectangleService {
         found.setWidth(rectangle.getWidth());
         found.setHeight(rectangle.getHeight());
         found.setColor(rectangle.getColor());
+        found.setAngle(rectangle.getAngle());
 
         return repository.save(found);
     }

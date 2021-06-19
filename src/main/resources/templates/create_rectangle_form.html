@@ -40,6 +40,11 @@
                             <input type="text" th:field="*{color}" class="form-control" id="color" placeholder="Color" required>
                             <span th:if="${#fields.hasErrors('color')}" th:errors="*{color}" class="text-danger"></span>
                         </div>
+                        <div class="form-group col-md-6">
+                            <label for="angle" class="col-form-label">Angle</label>
+                            <input type="number" th:field="*{angle}" class="form-control" id="angle" placeholder="Angle">
+                            <span th:if="${#fields.hasErrors('angle')}" th:errors="*{angle}" class="text-danger"></span>
+                        </div>
                     </div>
                     <div class="row">
                         <input type="submit" class="btn btn-primary" value="Add Rectangle" style="margin-left: 15px;">
