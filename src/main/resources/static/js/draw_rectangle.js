@@ -1,10 +1,12 @@
 function draw(width, height, color, name, angle) {
     var c = document.getElementById("draw-rectangle");
     var ctx = c.getContext("2d");
+
     ctx.rotate(angle * Math.PI / 180);
     ctx.rect(0, 0, width, height);
     ctx.fillStyle = colourNameToHex(color);
     ctx.fill();
+
     ctx.fillStyle = color == "black" ? "white" : "black";
     ctx.textAlign = "center";
     ctx.font = (height / 4).toString() + "px Verdana";
